@@ -1,0 +1,22 @@
+https://www.google.com/search?client=opera-gx&q=running+node+.%2Fnode_modules%2Felectron%2Finstall.js+not+producing+paths.txt+file&sourceid=opera&ie=UTF-8&oe=UTF-8&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1WBZlsmp16AtPwl2JD0qSy_O2ju2c2Jptc1EOmM28-b8Udopzf8P0kdJB8M3p5q8VaE92atPNve65kUMs09qPPMU2U2gRzjqjTnvFarAUKw0YkCg6gdPcF0vto5ATgbtMONVEh6KWHutcyfkEfDasvAQcvCQ&aep=10&ntc=1&sxsrf=APpeQnucwu8D9Iuihm41iUCz67HrCiG3CA%3A1789522873801&mstk=AUtExfDrNVOhSwU0jryb5bGcpOFVHFyPh2KyE_5131TFYxaE5hejhpDI-kTITRHoCBRSIPnH8nK3XgNG3xPKv3Xub38a8rz9VPjRmtE-kwCmyr8s4K7tnb-sx-Q65G__sWdyBTH_ezGo3w89CHYiC01pNzK9On6jM1xUETk&aioh=3&csuir=1&mtid=Q_SpapvSF_u1ptQPxae82QM
+
+
+
+1. Open your project's package.json.
+
+2. Add the overrides block (or resolutions if you use Yarn) to the root level of the file:
+		
+		
+		"overrides": {
+  			"yauzl": "^3.3.1"
+		}
+
+3. Run the cleanup and installation sequence in your terminal:
+
+		# Delete the existing, half-broken install
+		rm -rf node_modules package-lock.json
+
+		# Reinstall with the override in place
+		npm install
+
+During npm install, the override forces Electron's extraction pipeline to use yauzl v3.3.1. The underlying install.js will now cleanly extract the binaries and correctly generate your missing paths.txt file.
