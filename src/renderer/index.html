@@ -4,9 +4,18 @@
     <meta charset="UTF-8" />
     <title>Electron</title>
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta
+    <!--<meta
       http-equiv="Content-Security-Policy"
       content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' https://demotiles.maplibre.org; img-src 'self' data: blob: https://demotiles.maplibre.org"
+      content="default-src 'self'; script-src 'self' https://your-tile-server.com https://maptiler.com; img-src 'self' data: blob:;"
+    />-->
+    <!--<meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' https://maplibre.org https://tiles.maps.eox.at; img-src 'self' data: blob: https://maplibre.org https://tiles.maps.eox.at"
+    />-->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; worker-src 'self' blob:; connect-src 'self' https://maplibre.org https://eox.at https://*.google.com; img-src 'self' data: blob: https://maplibre.org https://eox.at https://*.google.com"
     />
   </head>
 

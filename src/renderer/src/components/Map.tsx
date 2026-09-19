@@ -20,13 +20,18 @@ function MapComponent(): React.JSX.Element {
       center: [0, 0],
       hash: true,
       attributionControl: false,
-      style: 'https://demotiles.maplibre.org/globe.json'
-      /*style: {
+      //style: 'https://demotiles.maplibre.org/globe.json'
+      style: {
         version: 8,
         sources: {
           satellite: {
             type: 'raster',
-            tiles: ['https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg'],
+            tiles: [
+              'https://mt0.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+              'https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+              'https://mt2.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',
+              'https://mt3.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+            ],
             tileSize: 256
           }
         },
@@ -37,7 +42,7 @@ function MapComponent(): React.JSX.Element {
             source: 'satellite'
           }
         ]
-      }*/
+      }
     })
 
     map.on('load', () => {
