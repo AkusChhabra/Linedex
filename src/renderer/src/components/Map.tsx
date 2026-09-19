@@ -16,11 +16,36 @@ function MapComponent(): React.JSX.Element {
 
     const map = new Map({
       container: mapContainer.current,
-      style: 'https://demotiles.maplibre.org/globe.json',
+      zoom: 2,
       center: [0, 0],
-      zoom: 1,
       hash: true,
-      attributionControl: false
+      attributionControl: false,
+      style: 'https://demotiles.maplibre.org/globe.json'
+      /*style: {
+        version: 8,
+        sources: {
+          satellite: {
+            type: 'raster',
+            tiles: ['https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2020_3857/default/g/{z}/{y}/{x}.jpg'],
+            tileSize: 256
+          }
+        },
+        layers: [
+          {
+            id: 'satellite',
+            type: 'raster',
+            source: 'satellite'
+          }
+        ]
+      }*/
+    })
+
+    map.on('load', () => {
+      console.log('MapLibre map loaded successfully.')
+    })
+
+    map.on('error', (event) => {
+      console.error('MapLibre error:', event.error)
     })
 
     return () => {
@@ -30,7 +55,7 @@ function MapComponent(): React.JSX.Element {
 
   return (
     <>
-      <div ref={mapContainer} style={{ width: '100%', height: '400px' }}></div>
+      <div ref={mapContainer} style={{ width: '100%', height: 'calc(100vh - 120px)' }}></div>
     </>
   )
 }

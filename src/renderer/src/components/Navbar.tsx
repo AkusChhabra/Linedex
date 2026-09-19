@@ -1,9 +1,7 @@
 function NavBar(): React.JSX.Element {
   return (
     <>
-      <div className="heading">
-        <h1>This is my map App</h1>
-      </div>
+      <h1>Linedex</h1>
     </>
   )
 }
